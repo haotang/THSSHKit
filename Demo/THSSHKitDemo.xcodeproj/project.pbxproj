@@ -1,0 +1,397 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		04BF380E1861A166000CA985 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04BF380D1861A166000CA985 /* Foundation.framework */; };
+		04BF38101861A166000CA985 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04BF380F1861A166000CA985 /* CoreGraphics.framework */; };
+		04BF38121861A166000CA985 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04BF38111861A166000CA985 /* UIKit.framework */; };
+		04BF38181861A166000CA985 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 04BF38161861A166000CA985 /* InfoPlist.strings */; };
+		04BF381A1861A166000CA985 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BF38191861A166000CA985 /* main.m */; };
+		04BF381E1861A166000CA985 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BF381D1861A166000CA985 /* AppDelegate.m */; };
+		04BF38201861A166000CA985 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04BF381F1861A166000CA985 /* Images.xcassets */; };
+		04BF38FA1861A979000CA985 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 04BF38F91861A979000CA985 /* libz.dylib */; };
+		CFD4485618620E0B00C2DFCA /* libgcrypt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD4485118620E0B00C2DFCA /* libgcrypt.a */; };
+		CFD4485718620E0B00C2DFCA /* libgpg-error.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD4485218620E0B00C2DFCA /* libgpg-error.a */; };
+		CFD4485818620E0C00C2DFCA /* libssh2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD4485318620E0B00C2DFCA /* libssh2.a */; };
+		CFD4485918620E0C00C2DFCA /* THSSHKit.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD4485518620E0B00C2DFCA /* THSSHKit.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		04BF380A1861A166000CA985 /* THSSHKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = THSSHKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		04BF380D1861A166000CA985 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		04BF380F1861A166000CA985 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		04BF38111861A166000CA985 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		04BF38151861A166000CA985 /* THSSHKitDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "THSSHKitDemo-Info.plist"; sourceTree = "<group>"; };
+		04BF38171861A166000CA985 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		04BF38191861A166000CA985 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		04BF381B1861A166000CA985 /* THSSHKitDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "THSSHKitDemo-Prefix.pch"; sourceTree = "<group>"; };
+		04BF381C1861A166000CA985 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		04BF381D1861A166000CA985 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		04BF381F1861A166000CA985 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		04BF38261861A166000CA985 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		04BF38F91861A979000CA985 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		CFD4484818620E0B00C2DFCA /* gcrypt-module.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "gcrypt-module.h"; sourceTree = "<group>"; };
+		CFD4484918620E0B00C2DFCA /* gcrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gcrypt.h; sourceTree = "<group>"; };
+		CFD4484B18620E0B00C2DFCA /* gpg-error.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "gpg-error.h"; sourceTree = "<group>"; };
+		CFD4484D18620E0B00C2DFCA /* libssh2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libssh2.h; sourceTree = "<group>"; };
+		CFD4484E18620E0B00C2DFCA /* libssh2_config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libssh2_config.h; sourceTree = "<group>"; };
+		CFD4484F18620E0B00C2DFCA /* libssh2_publickey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libssh2_publickey.h; sourceTree = "<group>"; };
+		CFD4485018620E0B00C2DFCA /* libssh2_sftp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libssh2_sftp.h; sourceTree = "<group>"; };
+		CFD4485118620E0B00C2DFCA /* libgcrypt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libgcrypt.a; sourceTree = "<group>"; };
+		CFD4485218620E0B00C2DFCA /* libgpg-error.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libgpg-error.a"; sourceTree = "<group>"; };
+		CFD4485318620E0B00C2DFCA /* libssh2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssh2.a; sourceTree = "<group>"; };
+		CFD4485418620E0B00C2DFCA /* THSSHKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THSSHKit.h; sourceTree = "<group>"; };
+		CFD4485518620E0B00C2DFCA /* THSSHKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THSSHKit.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		04BF38071861A166000CA985 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04BF38FA1861A979000CA985 /* libz.dylib in Frameworks */,
+				04BF38101861A166000CA985 /* CoreGraphics.framework in Frameworks */,
+				04BF38121861A166000CA985 /* UIKit.framework in Frameworks */,
+				CFD4485618620E0B00C2DFCA /* libgcrypt.a in Frameworks */,
+				04BF380E1861A166000CA985 /* Foundation.framework in Frameworks */,
+				CFD4485718620E0B00C2DFCA /* libgpg-error.a in Frameworks */,
+				CFD4485818620E0C00C2DFCA /* libssh2.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		04BF38011861A166000CA985 = {
+			isa = PBXGroup;
+			children = (
+				CFD4484418620E0B00C2DFCA /* THSSHKit */,
+				04BF38131861A166000CA985 /* THSSHKitDemo */,
+				04BF380C1861A166000CA985 /* Frameworks */,
+				04BF380B1861A166000CA985 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		04BF380B1861A166000CA985 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				04BF380A1861A166000CA985 /* THSSHKitDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		04BF380C1861A166000CA985 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				04BF38F91861A979000CA985 /* libz.dylib */,
+				04BF380D1861A166000CA985 /* Foundation.framework */,
+				04BF380F1861A166000CA985 /* CoreGraphics.framework */,
+				04BF38111861A166000CA985 /* UIKit.framework */,
+				04BF38261861A166000CA985 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		04BF38131861A166000CA985 /* THSSHKitDemo */ = {
+			isa = PBXGroup;
+			children = (
+				04BF381C1861A166000CA985 /* AppDelegate.h */,
+				04BF381D1861A166000CA985 /* AppDelegate.m */,
+				04BF381F1861A166000CA985 /* Images.xcassets */,
+				04BF38141861A166000CA985 /* Supporting Files */,
+			);
+			path = THSSHKitDemo;
+			sourceTree = "<group>";
+		};
+		04BF38141861A166000CA985 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				04BF38151861A166000CA985 /* THSSHKitDemo-Info.plist */,
+				04BF38161861A166000CA985 /* InfoPlist.strings */,
+				04BF38191861A166000CA985 /* main.m */,
+				04BF381B1861A166000CA985 /* THSSHKitDemo-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CFD4484418620E0B00C2DFCA /* THSSHKit */ = {
+			isa = PBXGroup;
+			children = (
+				CFD4484518620E0B00C2DFCA /* Libs */,
+				CFD4485418620E0B00C2DFCA /* THSSHKit.h */,
+				CFD4485518620E0B00C2DFCA /* THSSHKit.m */,
+			);
+			name = THSSHKit;
+			path = ../THSSHKit;
+			sourceTree = "<group>";
+		};
+		CFD4484518620E0B00C2DFCA /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				CFD4484618620E0B00C2DFCA /* Include */,
+				CFD4485118620E0B00C2DFCA /* libgcrypt.a */,
+				CFD4485218620E0B00C2DFCA /* libgpg-error.a */,
+				CFD4485318620E0B00C2DFCA /* libssh2.a */,
+			);
+			path = Libs;
+			sourceTree = "<group>";
+		};
+		CFD4484618620E0B00C2DFCA /* Include */ = {
+			isa = PBXGroup;
+			children = (
+				CFD4484718620E0B00C2DFCA /* libgcrypt */,
+				CFD4484A18620E0B00C2DFCA /* libgpg-error */,
+				CFD4484C18620E0B00C2DFCA /* libssh2 */,
+			);
+			path = Include;
+			sourceTree = "<group>";
+		};
+		CFD4484718620E0B00C2DFCA /* libgcrypt */ = {
+			isa = PBXGroup;
+			children = (
+				CFD4484818620E0B00C2DFCA /* gcrypt-module.h */,
+				CFD4484918620E0B00C2DFCA /* gcrypt.h */,
+			);
+			path = libgcrypt;
+			sourceTree = "<group>";
+		};
+		CFD4484A18620E0B00C2DFCA /* libgpg-error */ = {
+			isa = PBXGroup;
+			children = (
+				CFD4484B18620E0B00C2DFCA /* gpg-error.h */,
+			);
+			path = "libgpg-error";
+			sourceTree = "<group>";
+		};
+		CFD4484C18620E0B00C2DFCA /* libssh2 */ = {
+			isa = PBXGroup;
+			children = (
+				CFD4484D18620E0B00C2DFCA /* libssh2.h */,
+				CFD4484E18620E0B00C2DFCA /* libssh2_config.h */,
+				CFD4484F18620E0B00C2DFCA /* libssh2_publickey.h */,
+				CFD4485018620E0B00C2DFCA /* libssh2_sftp.h */,
+			);
+			path = libssh2;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		04BF38091861A166000CA985 /* THSSHKitDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04BF38361861A166000CA985 /* Build configuration list for PBXNativeTarget "THSSHKitDemo" */;
+			buildPhases = (
+				04BF38061861A166000CA985 /* Sources */,
+				04BF38071861A166000CA985 /* Frameworks */,
+				04BF38081861A166000CA985 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = THSSHKitDemo;
+			productName = THSSHKitDemo;
+			productReference = 04BF380A1861A166000CA985 /* THSSHKitDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		04BF38021861A166000CA985 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = HaoTang;
+			};
+			buildConfigurationList = 04BF38051861A166000CA985 /* Build configuration list for PBXProject "THSSHKitDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 04BF38011861A166000CA985;
+			productRefGroup = 04BF380B1861A166000CA985 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				04BF38091861A166000CA985 /* THSSHKitDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		04BF38081861A166000CA985 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04BF38181861A166000CA985 /* InfoPlist.strings in Resources */,
+				04BF38201861A166000CA985 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		04BF38061861A166000CA985 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04BF381E1861A166000CA985 /* AppDelegate.m in Sources */,
+				04BF381A1861A166000CA985 /* main.m in Sources */,
+				CFD4485918620E0C00C2DFCA /* THSSHKit.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		04BF38161861A166000CA985 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				04BF38171861A166000CA985 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		04BF38341861A166000CA985 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		04BF38351861A166000CA985 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		04BF38371861A166000CA985 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "THSSHKitDemo/THSSHKitDemo-Prefix.pch";
+				INFOPLIST_FILE = "THSSHKitDemo/THSSHKitDemo-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/nest0r/Projects/THSSHKit/THSSHKit/Libs,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		04BF38381861A166000CA985 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "THSSHKitDemo/THSSHKitDemo-Prefix.pch";
+				INFOPLIST_FILE = "THSSHKitDemo/THSSHKitDemo-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/nest0r/Projects/THSSHKit/THSSHKit/Libs,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		04BF38051861A166000CA985 /* Build configuration list for PBXProject "THSSHKitDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04BF38341861A166000CA985 /* Debug */,
+				04BF38351861A166000CA985 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		04BF38361861A166000CA985 /* Build configuration list for PBXNativeTarget "THSSHKitDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04BF38371861A166000CA985 /* Debug */,
+				04BF38381861A166000CA985 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 04BF38021861A166000CA985 /* Project object */;
+}
