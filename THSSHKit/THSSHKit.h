@@ -12,7 +12,7 @@
 
 + (BOOL)start;
 + (BOOL)createRemoteTunnelWithServerIP:(NSString *)serverIP
-                              username:(NSString *)userName
+                              username:(NSString *)user
                               password:(NSString *)password
                       remoteListenPort:(int)remoteListenPort
                              forwardIP:(NSString *)forwadIP

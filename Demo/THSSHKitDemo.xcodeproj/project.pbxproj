@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0479FF491862A2730078C175 /* libgcrypt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0479FF441862A2730078C175 /* libgcrypt.a */; };
+		0479FF4A1862A2730078C175 /* libgpg-error.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0479FF451862A2730078C175 /* libgpg-error.a */; };
+		0479FF4B1862A2730078C175 /* libssh2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0479FF461862A2730078C175 /* libssh2.a */; };
+		0479FF4C1862A2730078C175 /* THSSHKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 0479FF481862A2730078C175 /* THSSHKit.m */; };
 		04BF380E1861A166000CA985 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04BF380D1861A166000CA985 /* Foundation.framework */; };
 		04BF38101861A166000CA985 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04BF380F1861A166000CA985 /* CoreGraphics.framework */; };
 		04BF38121861A166000CA985 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04BF38111861A166000CA985 /* UIKit.framework */; };
@@ -15,13 +19,21 @@
 		04BF381E1861A166000CA985 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BF381D1861A166000CA985 /* AppDelegate.m */; };
 		04BF38201861A166000CA985 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04BF381F1861A166000CA985 /* Images.xcassets */; };
 		04BF38FA1861A979000CA985 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 04BF38F91861A979000CA985 /* libz.dylib */; };
-		CFD4485618620E0B00C2DFCA /* libgcrypt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD4485118620E0B00C2DFCA /* libgcrypt.a */; };
-		CFD4485718620E0B00C2DFCA /* libgpg-error.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD4485218620E0B00C2DFCA /* libgpg-error.a */; };
-		CFD4485818620E0C00C2DFCA /* libssh2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD4485318620E0B00C2DFCA /* libssh2.a */; };
-		CFD4485918620E0C00C2DFCA /* THSSHKit.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD4485518620E0B00C2DFCA /* THSSHKit.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0479FF3B1862A2730078C175 /* gcrypt-module.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "gcrypt-module.h"; sourceTree = "<group>"; };
+		0479FF3C1862A2730078C175 /* gcrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gcrypt.h; sourceTree = "<group>"; };
+		0479FF3E1862A2730078C175 /* gpg-error.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "gpg-error.h"; sourceTree = "<group>"; };
+		0479FF401862A2730078C175 /* libssh2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libssh2.h; sourceTree = "<group>"; };
+		0479FF411862A2730078C175 /* libssh2_config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libssh2_config.h; sourceTree = "<group>"; };
+		0479FF421862A2730078C175 /* libssh2_publickey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libssh2_publickey.h; sourceTree = "<group>"; };
+		0479FF431862A2730078C175 /* libssh2_sftp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libssh2_sftp.h; sourceTree = "<group>"; };
+		0479FF441862A2730078C175 /* libgcrypt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libgcrypt.a; sourceTree = "<group>"; };
+		0479FF451862A2730078C175 /* libgpg-error.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libgpg-error.a"; sourceTree = "<group>"; };
+		0479FF461862A2730078C175 /* libssh2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssh2.a; sourceTree = "<group>"; };
+		0479FF471862A2730078C175 /* THSSHKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THSSHKit.h; sourceTree = "<group>"; };
+		0479FF481862A2730078C175 /* THSSHKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THSSHKit.m; sourceTree = "<group>"; };
 		04BF380A1861A166000CA985 /* THSSHKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = THSSHKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04BF380D1861A166000CA985 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		04BF380F1861A166000CA985 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -35,18 +47,6 @@
 		04BF381F1861A166000CA985 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		04BF38261861A166000CA985 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		04BF38F91861A979000CA985 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		CFD4484818620E0B00C2DFCA /* gcrypt-module.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "gcrypt-module.h"; sourceTree = "<group>"; };
-		CFD4484918620E0B00C2DFCA /* gcrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gcrypt.h; sourceTree = "<group>"; };
-		CFD4484B18620E0B00C2DFCA /* gpg-error.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "gpg-error.h"; sourceTree = "<group>"; };
-		CFD4484D18620E0B00C2DFCA /* libssh2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libssh2.h; sourceTree = "<group>"; };
-		CFD4484E18620E0B00C2DFCA /* libssh2_config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libssh2_config.h; sourceTree = "<group>"; };
-		CFD4484F18620E0B00C2DFCA /* libssh2_publickey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libssh2_publickey.h; sourceTree = "<group>"; };
-		CFD4485018620E0B00C2DFCA /* libssh2_sftp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libssh2_sftp.h; sourceTree = "<group>"; };
-		CFD4485118620E0B00C2DFCA /* libgcrypt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libgcrypt.a; sourceTree = "<group>"; };
-		CFD4485218620E0B00C2DFCA /* libgpg-error.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libgpg-error.a"; sourceTree = "<group>"; };
-		CFD4485318620E0B00C2DFCA /* libssh2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssh2.a; sourceTree = "<group>"; };
-		CFD4485418620E0B00C2DFCA /* THSSHKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THSSHKit.h; sourceTree = "<group>"; };
-		CFD4485518620E0B00C2DFCA /* THSSHKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THSSHKit.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,20 +57,80 @@
 				04BF38FA1861A979000CA985 /* libz.dylib in Frameworks */,
 				04BF38101861A166000CA985 /* CoreGraphics.framework in Frameworks */,
 				04BF38121861A166000CA985 /* UIKit.framework in Frameworks */,
-				CFD4485618620E0B00C2DFCA /* libgcrypt.a in Frameworks */,
+				0479FF491862A2730078C175 /* libgcrypt.a in Frameworks */,
 				04BF380E1861A166000CA985 /* Foundation.framework in Frameworks */,
-				CFD4485718620E0B00C2DFCA /* libgpg-error.a in Frameworks */,
-				CFD4485818620E0C00C2DFCA /* libssh2.a in Frameworks */,
+				0479FF4A1862A2730078C175 /* libgpg-error.a in Frameworks */,
+				0479FF4B1862A2730078C175 /* libssh2.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0479FF371862A2730078C175 /* THSSHKit */ = {
+			isa = PBXGroup;
+			children = (
+				0479FF381862A2730078C175 /* Libs */,
+				0479FF471862A2730078C175 /* THSSHKit.h */,
+				0479FF481862A2730078C175 /* THSSHKit.m */,
+			);
+			name = THSSHKit;
+			path = ../THSSHKit;
+			sourceTree = "<group>";
+		};
+		0479FF381862A2730078C175 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				0479FF391862A2730078C175 /* include */,
+				0479FF441862A2730078C175 /* libgcrypt.a */,
+				0479FF451862A2730078C175 /* libgpg-error.a */,
+				0479FF461862A2730078C175 /* libssh2.a */,
+			);
+			path = Libs;
+			sourceTree = "<group>";
+		};
+		0479FF391862A2730078C175 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				0479FF3A1862A2730078C175 /* libgcrypt */,
+				0479FF3D1862A2730078C175 /* libgpg-error */,
+				0479FF3F1862A2730078C175 /* libssh2 */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		0479FF3A1862A2730078C175 /* libgcrypt */ = {
+			isa = PBXGroup;
+			children = (
+				0479FF3B1862A2730078C175 /* gcrypt-module.h */,
+				0479FF3C1862A2730078C175 /* gcrypt.h */,
+			);
+			path = libgcrypt;
+			sourceTree = "<group>";
+		};
+		0479FF3D1862A2730078C175 /* libgpg-error */ = {
+			isa = PBXGroup;
+			children = (
+				0479FF3E1862A2730078C175 /* gpg-error.h */,
+			);
+			path = "libgpg-error";
+			sourceTree = "<group>";
+		};
+		0479FF3F1862A2730078C175 /* libssh2 */ = {
+			isa = PBXGroup;
+			children = (
+				0479FF401862A2730078C175 /* libssh2.h */,
+				0479FF411862A2730078C175 /* libssh2_config.h */,
+				0479FF421862A2730078C175 /* libssh2_publickey.h */,
+				0479FF431862A2730078C175 /* libssh2_sftp.h */,
+			);
+			path = libssh2;
+			sourceTree = "<group>";
+		};
 		04BF38011861A166000CA985 = {
 			isa = PBXGroup;
 			children = (
-				CFD4484418620E0B00C2DFCA /* THSSHKit */,
+				0479FF371862A2730078C175 /* THSSHKit */,
 				04BF38131861A166000CA985 /* THSSHKitDemo */,
 				04BF380C1861A166000CA985 /* Frameworks */,
 				04BF380B1861A166000CA985 /* Products */,
@@ -117,66 +177,6 @@
 				04BF381B1861A166000CA985 /* THSSHKitDemo-Prefix.pch */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		CFD4484418620E0B00C2DFCA /* THSSHKit */ = {
-			isa = PBXGroup;
-			children = (
-				CFD4484518620E0B00C2DFCA /* Libs */,
-				CFD4485418620E0B00C2DFCA /* THSSHKit.h */,
-				CFD4485518620E0B00C2DFCA /* THSSHKit.m */,
-			);
-			name = THSSHKit;
-			path = ../THSSHKit;
-			sourceTree = "<group>";
-		};
-		CFD4484518620E0B00C2DFCA /* Libs */ = {
-			isa = PBXGroup;
-			children = (
-				CFD4484618620E0B00C2DFCA /* Include */,
-				CFD4485118620E0B00C2DFCA /* libgcrypt.a */,
-				CFD4485218620E0B00C2DFCA /* libgpg-error.a */,
-				CFD4485318620E0B00C2DFCA /* libssh2.a */,
-			);
-			path = Libs;
-			sourceTree = "<group>";
-		};
-		CFD4484618620E0B00C2DFCA /* Include */ = {
-			isa = PBXGroup;
-			children = (
-				CFD4484718620E0B00C2DFCA /* libgcrypt */,
-				CFD4484A18620E0B00C2DFCA /* libgpg-error */,
-				CFD4484C18620E0B00C2DFCA /* libssh2 */,
-			);
-			path = Include;
-			sourceTree = "<group>";
-		};
-		CFD4484718620E0B00C2DFCA /* libgcrypt */ = {
-			isa = PBXGroup;
-			children = (
-				CFD4484818620E0B00C2DFCA /* gcrypt-module.h */,
-				CFD4484918620E0B00C2DFCA /* gcrypt.h */,
-			);
-			path = libgcrypt;
-			sourceTree = "<group>";
-		};
-		CFD4484A18620E0B00C2DFCA /* libgpg-error */ = {
-			isa = PBXGroup;
-			children = (
-				CFD4484B18620E0B00C2DFCA /* gpg-error.h */,
-			);
-			path = "libgpg-error";
-			sourceTree = "<group>";
-		};
-		CFD4484C18620E0B00C2DFCA /* libssh2 */ = {
-			isa = PBXGroup;
-			children = (
-				CFD4484D18620E0B00C2DFCA /* libssh2.h */,
-				CFD4484E18620E0B00C2DFCA /* libssh2_config.h */,
-				CFD4484F18620E0B00C2DFCA /* libssh2_publickey.h */,
-				CFD4485018620E0B00C2DFCA /* libssh2_sftp.h */,
-			);
-			path = libssh2;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,7 +244,7 @@
 			files = (
 				04BF381E1861A166000CA985 /* AppDelegate.m in Sources */,
 				04BF381A1861A166000CA985 /* main.m in Sources */,
-				CFD4485918620E0C00C2DFCA /* THSSHKit.m in Sources */,
+				0479FF4C1862A2730078C175 /* THSSHKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,14 +341,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "THSSHKitDemo/THSSHKitDemo-Prefix.pch";
 				INFOPLIST_FILE = "THSSHKitDemo/THSSHKitDemo-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/nest0r/Projects/THSSHKit/THSSHKit/Libs,
+					"$(SRCROOT)/../THSSHKit/**",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "FA9D5264-ECAC-4281-9D2C-E7B18CF803CA";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -358,14 +360,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "THSSHKitDemo/THSSHKitDemo-Prefix.pch";
 				INFOPLIST_FILE = "THSSHKitDemo/THSSHKitDemo-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/nest0r/Projects/THSSHKit/THSSHKit/Libs,
+					"$(SRCROOT)/../THSSHKit/**",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "FA9D5264-ECAC-4281-9D2C-E7B18CF803CA";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
