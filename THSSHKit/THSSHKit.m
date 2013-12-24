@@ -39,22 +39,62 @@ enum {
     AUTH_PUBLICKEY
 };
 
+static int waitsocket(int socket_fd, LIBSSH2_SESSION *session)
+{
+    struct timeval timeout;
+    int rc;
+    fd_set fd;
+    fd_set *writefd = NULL;
+    fd_set *readfd = NULL;
+    int dir;
+    
+    timeout.tv_sec = 10;
+    timeout.tv_usec = 0;
+    
+    FD_ZERO(&fd);
+    
+    FD_SET(socket_fd, &fd);
+    
+    /* now make sure we wait in the correct direction */
+    dir = libssh2_session_block_directions(session);
+    
+    if(dir & LIBSSH2_SESSION_BLOCK_INBOUND)
+        readfd = &fd;
+    
+    if(dir & LIBSSH2_SESSION_BLOCK_OUTBOUND)
+        writefd = &fd;
+    
+    rc = select(socket_fd + 1, readfd, writefd, NULL, &timeout);
+    
+    return rc;
+}
 
-@implementation THSSHKit
+@interface THSSHClient ()
+
+@property (copy, nonatomic) THSSHConnctSuccessBlock connectSuccessBlock;
+@property (copy, nonatomic) THSSHConnectFailureBlock connectFailureBlock;
+@property (nonatomic) int sock;
+@property (nonatomic) int rc;
+@property (nonatomic) LIBSSH2_SESSION *session;
+@property (nonatomic) LIBSSH2_CHANNEL *channel;
+
+@end
+
+@implementation THSSHClient
 
 + (BOOL)start {
 
-    const char *username = "";
-    const char *password = "";
+    const char *username = "thgit";
+    const char *password = "1112";
     
-    const char *server_ip = "";
+    const char *server_ip = "192.168.40.67";
     
-    const char *remote_listenhost = "localhost"; /* resolved by the server */
+    const char *remote_listenhost = "192.168.40.67"; /* resolved by the server */
     unsigned int remote_wantport = 3333;
     unsigned int remote_listenport;
     
     const char *local_destip = "127.0.0.1";
-    unsigned int local_destport = 12345;
+    unsigned int local_destport = 1027;
     
         int rc, sock = -1, forwardsock = -1, i, auth = AUTH_NONE;
         struct sockaddr_in sin;
@@ -269,21 +309,21 @@ enum {
         }
         
     shutdown:
-
-        close(forwardsock);
-    
-        if (channel)
-            libssh2_channel_free(channel);
-        if (listener)
-            libssh2_channel_forward_cancel(listener);
-        libssh2_session_disconnect(session, "Client disconnecting normally");
-        libssh2_session_free(session);
-
-        close(sock);
-    
-        libssh2_exit();
-        
-        return 1;
+    return 1;
+//        close(forwardsock);
+//    
+//        if (channel)
+//            libssh2_channel_free(channel);
+//        if (listener)
+//            libssh2_channel_forward_cancel(listener);
+//        libssh2_session_disconnect(session, "Client disconnecting normally");
+//        libssh2_session_free(session);
+//
+//        close(sock);
+//    
+//        libssh2_exit();
+//        
+//        return 1;
 }
 
 //+ (BOOL)createRemoteTunnelWithServerIP:(NSString *)serverIP username:(NSString *)user password:(NSString *)password remoteListenPort:(int)remoteListenPort forwardIP:(NSString *)forwadIP forwardPort:(int)forwardPort {
@@ -518,5 +558,140 @@ enum {
 //    
 //    return NO;
 //}
+
+- (void)connectToHost:(NSString *)host
+                 port:(int)port
+                 user:(NSString *)user
+             password:(NSString *)password
+              success:(THSSHConnctSuccessBlock)successBlock
+              failure:(THSSHConnectFailureBlock)failureBlock {
+    if (host.length == 0) {
+        NSError *error = [NSError errorWithDomain:@"de.felixschulze.sshwrapper" code:300 userInfo:@{NSLocalizedDescriptionKey:@"No host"}];
+        failureBlock(error);
+        return;
+    }
+	const char* hostChar = [host cStringUsingEncoding:NSUTF8StringEncoding];
+	const char* userChar = [user cStringUsingEncoding:NSUTF8StringEncoding];
+	const char* passwordChar = [password cStringUsingEncoding:NSUTF8StringEncoding];
+    struct sockaddr_in sock_serv_addr;
+    unsigned long hostaddr = inet_addr(hostChar);
+    
+    _sock = socket(AF_INET, SOCK_STREAM, 0);
+    sock_serv_addr.sin_family = AF_INET;
+    sock_serv_addr.sin_port = htons(port);
+    sock_serv_addr.sin_addr.s_addr = hostaddr;
+    if (connect(_sock, (struct sockaddr *) (&sock_serv_addr), sizeof(sock_serv_addr)) != 0) {
+        NSError *error = [NSError errorWithDomain:@"de.felixschulze.sshwrapper" code:400 userInfo:@{NSLocalizedDescriptionKey:@"Failed to connect"}];
+        failureBlock(error);
+        return;
+    }
+	
+    /* Create a session instance */
+    _session = libssh2_session_init();
+    if (!_session) {
+        NSError *error = [NSError errorWithDomain:@"de.felixschulze.sshwrapper" code:401 userInfo:@{NSLocalizedDescriptionKey : @"Create session failed"}];
+        failureBlock(error);
+        return;
+    }
+	
+    /* tell libssh2 we want it all done non-blocking */
+    libssh2_session_set_blocking(_session, 0);
+	
+    /* ... start it up. This will trade welcome banners, exchange keys,
+     * and setup crypto, compression, and MAC layers
+     */
+    while ((_rc = libssh2_session_startup(_session, _sock)) ==
+           LIBSSH2_ERROR_EAGAIN);
+    if (_rc) {
+        NSError *error = [NSError errorWithDomain:@"de.felixschulze.sshwrapper" code:402 userInfo:@{NSLocalizedDescriptionKey : [NSString stringWithFormat:@"Failure establishing SSH session: %d", _rc]}];
+        failureBlock(error);
+        return;
+    }
+    
+    if ( strlen(passwordChar) != 0 ) {
+		/* We could authenticate via password */
+        while ((_rc = libssh2_userauth_password(_session, userChar, passwordChar)) == LIBSSH2_ERROR_EAGAIN);
+		if (_rc) {
+            NSError *error = [NSError errorWithDomain:@"de.felixschulze.sshwrapper" code:403 userInfo:@{NSLocalizedDescriptionKey : @"Authentication by password failed."}];
+            failureBlock(error);
+            return;
+		}
+	}
+    successBlock();
+}
+
+- (void)executeCommand:(NSString *)command success:(void (^)(NSString *))successBlock failure:(void (^)(NSError *))failureBlock {
+    if (!_session) {
+        NSError *error = [NSError errorWithDomain:@"com.nestree.thsshkit" code:501 userInfo:@{NSLocalizedDescriptionKey: @"SSH client disconnect"}];
+        failureBlock(error);
+        return;
+    }
+    const char* commandChar = [command cStringUsingEncoding:NSUTF8StringEncoding];
+    
+	NSString *result = nil;
+	
+    /* Exec non-blocking on the remove host */
+    while((_channel = libssh2_channel_open_session(_session)) == NULL &&
+		  libssh2_session_last_error(_session,NULL,NULL,0) == LIBSSH2_ERROR_EAGAIN)
+    {
+        waitsocket(_sock, _session);
+    }
+    if(_channel == NULL)
+    {
+        NSError *error = [NSError errorWithDomain:@"de.felixschulze.sshwrapper" code:501 userInfo:@{NSLocalizedDescriptionKey : @"No channel found."}];
+        failureBlock(error);
+        return;
+    }
+    while((_rc = libssh2_channel_exec(_channel, commandChar)) == LIBSSH2_ERROR_EAGAIN)
+    {
+        waitsocket(_sock, _session);
+    }
+    if(_rc != 0)
+    {
+        NSError *error = [NSError errorWithDomain:@"de.felixschulze.sshwrapper" code:502 userInfo:@{NSLocalizedDescriptionKey : @"Error while exec command."}];
+        failureBlock(error);
+        return;
+    }
+    for( ;; )
+    {
+        /* loop until we block */
+        int rc1;
+        do
+        {
+            char buffer[0x2000];
+            rc1 = libssh2_channel_read(_channel, buffer, sizeof(buffer));
+            if( rc1 > 0 )
+            {
+				result = @(buffer);
+            }
+        }
+        while( rc1 > 0 );
+		
+        /* this is due to blocking that would occur otherwise so we loop on
+		 this condition */
+        if(rc1 == LIBSSH2_ERROR_EAGAIN)
+        {
+            waitsocket(_sock, _session);
+        }
+        else
+            break;
+    }
+    while((_rc = libssh2_channel_close(_channel)) == LIBSSH2_ERROR_EAGAIN)
+        waitsocket(_sock, _session);
+	
+    libssh2_channel_free(_channel);
+    _channel = NULL;
+	
+    successBlock(result);
+}
+
+- (void)disconnect {
+    if (_session) {
+        libssh2_session_disconnect(_session, "Normal Shutdown, Thank you for playing");
+        libssh2_session_free(_session);
+        _session = nil;
+    }
+    close(_sock);
+}
 
 @end

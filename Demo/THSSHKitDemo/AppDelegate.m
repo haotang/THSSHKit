@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "THSSHKit.h"
+#import "THSSHKitDemoViewController.h"
 
 @implementation AppDelegate
 
@@ -18,7 +18,8 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    [THSSHKit start];
+    _viewController = [[THSSHKitDemoViewController alloc] initWithNibName:@"THSSHKitDemoViewController" bundle:nil];
+    self.window.rootViewController = _viewController;
     
     return YES;
 }

@@ -11,6 +11,8 @@
 		0479FF4A1862A2730078C175 /* libgpg-error.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0479FF451862A2730078C175 /* libgpg-error.a */; };
 		0479FF4B1862A2730078C175 /* libssh2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0479FF461862A2730078C175 /* libssh2.a */; };
 		0479FF4C1862A2730078C175 /* THSSHKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 0479FF481862A2730078C175 /* THSSHKit.m */; };
+		04BDF7E21869705900196E60 /* THSSHKitDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BDF7E11869705900196E60 /* THSSHKitDemoViewController.m */; };
+		04BDF7E41869903400196E60 /* THSSHKitDemoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04BDF7E31869903400196E60 /* THSSHKitDemoViewController.xib */; };
 		04BF380E1861A166000CA985 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04BF380D1861A166000CA985 /* Foundation.framework */; };
 		04BF38101861A166000CA985 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04BF380F1861A166000CA985 /* CoreGraphics.framework */; };
 		04BF38121861A166000CA985 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04BF38111861A166000CA985 /* UIKit.framework */; };
@@ -34,6 +36,9 @@
 		0479FF461862A2730078C175 /* libssh2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssh2.a; sourceTree = "<group>"; };
 		0479FF471862A2730078C175 /* THSSHKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THSSHKit.h; sourceTree = "<group>"; };
 		0479FF481862A2730078C175 /* THSSHKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THSSHKit.m; sourceTree = "<group>"; };
+		04BDF7E01869705900196E60 /* THSSHKitDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THSSHKitDemoViewController.h; sourceTree = "<group>"; };
+		04BDF7E11869705900196E60 /* THSSHKitDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THSSHKitDemoViewController.m; sourceTree = "<group>"; };
+		04BDF7E31869903400196E60 /* THSSHKitDemoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = THSSHKitDemoViewController.xib; sourceTree = "<group>"; };
 		04BF380A1861A166000CA985 /* THSSHKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = THSSHKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04BF380D1861A166000CA985 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		04BF380F1861A166000CA985 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -162,6 +167,9 @@
 			children = (
 				04BF381C1861A166000CA985 /* AppDelegate.h */,
 				04BF381D1861A166000CA985 /* AppDelegate.m */,
+				04BDF7E01869705900196E60 /* THSSHKitDemoViewController.h */,
+				04BDF7E11869705900196E60 /* THSSHKitDemoViewController.m */,
+				04BDF7E31869903400196E60 /* THSSHKitDemoViewController.xib */,
 				04BF381F1861A166000CA985 /* Images.xcassets */,
 				04BF38141861A166000CA985 /* Supporting Files */,
 			);
@@ -231,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04BF38181861A166000CA985 /* InfoPlist.strings in Resources */,
+				04BDF7E41869903400196E60 /* THSSHKitDemoViewController.xib in Resources */,
 				04BF38201861A166000CA985 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -243,6 +252,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04BF381E1861A166000CA985 /* AppDelegate.m in Sources */,
+				04BDF7E21869705900196E60 /* THSSHKitDemoViewController.m in Sources */,
 				04BF381A1861A166000CA985 /* main.m in Sources */,
 				0479FF4C1862A2730078C175 /* THSSHKit.m in Sources */,
 			);

@@ -8,14 +8,35 @@
 
 #import <Foundation/Foundation.h>
 
-@interface THSSHKit : NSObject
+typedef void (^THSSHConnctSuccessBlock)();
+typedef void (^THSSHConnectFailureBlock)(NSError *error);
+typedef void (^THSSHExecuteSuccessBlock)(NSString *result);
+typedef void (^THSSHExecuteFailureBlock)(NSError *error);
+
+@interface THSSHClient : NSObject
 
 + (BOOL)start;
+
 + (BOOL)createRemoteTunnelWithServerIP:(NSString *)serverIP
                               username:(NSString *)user
                               password:(NSString *)password
                       remoteListenPort:(int)remoteListenPort
                              forwardIP:(NSString *)forwadIP
                            forwardPort:(int)forwardPort;
+
+- (void)connectToHost:(NSString *)host
+                 port:(int)port
+                 user:(NSString *)user
+             password:(NSString *)password
+              success:(THSSHConnctSuccessBlock)successBlock
+              failure:(THSSHConnectFailureBlock)failureBlock;
+
+- (NSString *)executeCommand:(NSString *)command error:(NSError **)error;
+
+- (void)executeCommand:(NSString *)command
+               success:(THSSHExecuteSuccessBlock)successBlock
+               failure:(THSSHExecuteFailureBlock)failureBlock;
+
+- (void)disconnect;
 
 @end
