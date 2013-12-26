@@ -15,15 +15,6 @@ typedef void (^THSSHExecuteFailureBlock)(NSError *error);
 
 @interface THSSHClient : NSObject
 
-+ (BOOL)start;
-
-+ (BOOL)createRemoteTunnelWithServerIP:(NSString *)serverIP
-                              username:(NSString *)user
-                              password:(NSString *)password
-                      remoteListenPort:(int)remoteListenPort
-                             forwardIP:(NSString *)forwadIP
-                           forwardPort:(int)forwardPort;
-
 - (void)connectToHost:(NSString *)host
                  port:(int)port
                  user:(NSString *)user
@@ -36,6 +27,13 @@ typedef void (^THSSHExecuteFailureBlock)(NSError *error);
 - (void)executeCommand:(NSString *)command
                success:(THSSHExecuteSuccessBlock)successBlock
                failure:(THSSHExecuteFailureBlock)failureBlock;
+
+- (void)createRemoteTunnelWithHost:(NSString *)host
+                              user:(NSString *)user
+                          password:(NSString *)password
+                  remoteListenPort:(int)remoteListenPort
+                         forwardIP:(NSString *)forwadIP
+                       forwardPort:(int)forwardPort;
 
 - (void)disconnect;
 

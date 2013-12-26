@@ -69,4 +69,12 @@
     [[UIApplication sharedApplication].keyWindow endEditing:YES];
 }
 
+- (IBAction)remoteButtonClicked:(id)sender {
+    [self.sshClient createRemoteTunnelWithHost:self.serverField.text
+                                          user:self.userField.text
+                                      password:self.passwordField.text
+                              remoteListenPort:[self.portField.text intValue]
+                                     forwardIP:@"127.0.0.1"
+                                   forwardPort:22];
+}
 @end
