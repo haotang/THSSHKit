@@ -74,7 +74,7 @@ static int waitsocket(int socket_fd, LIBSSH2_SESSION *session)
 @property (copy, nonatomic) THSSHConnctSuccessBlock connectSuccessBlock;
 @property (copy, nonatomic) THSSHConnectFailureBlock connectFailureBlock;
 @property (nonatomic) int sock;
-@property (nonatomic) int rc;
+@property (nonatomic) NSInteger rc;
 @property (nonatomic) LIBSSH2_SESSION *session;
 @property (nonatomic) LIBSSH2_CHANNEL *channel;
 
@@ -92,6 +92,18 @@ static int waitsocket(int socket_fd, LIBSSH2_SESSION *session)
         NSError *error = [NSError errorWithDomain:@"de.felixschulze.sshwrapper" code:300 userInfo:@{NSLocalizedDescriptionKey:@"No host"}];
         failureBlock(error);
         return;
+    }
+    
+    if (!host) {
+        host = @"";
+    }
+    
+    if (!user) {
+        user = @"";
+    }
+    
+    if (!password) {
+        password = @"";
     }
 	const char* hostChar = [host cStringUsingEncoding:NSUTF8StringEncoding];
 	const char* userChar = [user cStringUsingEncoding:NSUTF8StringEncoding];
@@ -151,11 +163,11 @@ static int waitsocket(int socket_fd, LIBSSH2_SESSION *session)
     }
     const char* commandChar = [command cStringUsingEncoding:NSUTF8StringEncoding];
     
-	NSString *result = nil;
-	
+	NSString *result = @"";
+
     /* Exec non-blocking on the remove host */
     while((_channel = libssh2_channel_open_session(_session)) == NULL &&
-		  libssh2_session_last_error(_session,NULL,NULL,0) == LIBSSH2_ERROR_EAGAIN)
+          libssh2_session_last_error(_session,NULL,NULL,0) == LIBSSH2_ERROR_EAGAIN)
     {
         waitsocket(_sock, _session);
     }
@@ -165,6 +177,7 @@ static int waitsocket(int socket_fd, LIBSSH2_SESSION *session)
         failureBlock(error);
         return;
     }
+    
     while((_rc = libssh2_channel_exec(_channel, commandChar)) == LIBSSH2_ERROR_EAGAIN)
     {
         waitsocket(_sock, _session);
@@ -178,14 +191,14 @@ static int waitsocket(int socket_fd, LIBSSH2_SESSION *session)
     for( ;; )
     {
         /* loop until we block */
-        int rc1;
+        NSInteger rc1;
         do
         {
             char buffer[0x2000];
             rc1 = libssh2_channel_read(_channel, buffer, sizeof(buffer));
             if( rc1 > 0 )
             {
-				result = @(buffer);
+                result = [NSString stringWithCString:(const char *)buffer encoding:NSASCIIStringEncoding];
             }
         }
         while( rc1 > 0 );
@@ -221,7 +234,7 @@ static int waitsocket(int socket_fd, LIBSSH2_SESSION *session)
     
     const char *forwardIPChar = [forwadIP cStringUsingEncoding:NSUTF8StringEncoding];
     
-    int rc, sock = -1, forwardsock = -1, i;
+    NSInteger rc, sock = -1, forwardsock = -1, i;
     struct sockaddr_in sin;
     socklen_t sinlen = sizeof(sin);
 

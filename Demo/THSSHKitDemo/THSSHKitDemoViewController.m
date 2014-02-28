@@ -41,7 +41,8 @@
                           success:^{
                               self.statusLabel.text = @"Connect success";
                               [[UIApplication sharedApplication].keyWindow endEditing:YES];
-                          } failure:^(NSError *error) {
+                          }
+                          failure:^(NSError *error) {
                               self.statusLabel.text = [error localizedDescription];
                               [[UIApplication sharedApplication].keyWindow endEditing:YES];
                           }];
@@ -59,7 +60,8 @@
                                self.resultTextView.text = result;
                                self.statusLabel.text = @"Execute success";
                                [[UIApplication sharedApplication].keyWindow endEditing:YES];
-                           } failure:^(NSError *error) {
+                           }
+                           failure:^(NSError *error) {
                                self.statusLabel.text = [error localizedDescription];
                                [[UIApplication sharedApplication].keyWindow endEditing:YES];
                            }];
@@ -75,6 +77,6 @@
                                       password:self.passwordField.text
                               remoteListenPort:[self.portField.text intValue]
                                      forwardIP:@"127.0.0.1"
-                                   forwardPort:22];
+                                   forwardPort:55919];
 }
 @end
